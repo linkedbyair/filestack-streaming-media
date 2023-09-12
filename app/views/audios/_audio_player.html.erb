@@ -1,0 +1,31 @@
+<% return if @record.blank? %>
+
+<%= tag.div(
+  data: {
+    controller: "audio-player",
+    audio_player_stream_url: @record.audio_stream_url,
+    audio_player_fallback_url: @record.audio_url
+  }
+) do %>
+  <% if @record.audio_stream_url.present? %>
+    <%= tag.p "Audio has been successfully converted for streaming." %>
+  <% elsif @record.audio_url.present? %>
+    <%= tag.p "We are still waiting for this audio to be converted for streaming." %>
+  <% else %>
+    <%= tag.p "This audio record doesn't have any audio uploaded." %>
+  <% end %>
+
+  <%= tag.video(
+    controls: true,
+    playsinline: true,
+    preload: "metadata",
+    data: { audio_player_target: "video" }
+  ) %>
+  <%= tag.audio(
+    style: "display: none;",
+    controls: true,
+    playsinline: true,
+    preload: "metadata",
+    data: { audio_player_target: "audio" }
+  ) %>
+<% end %>

@@ -1,0 +1,9 @@
+<%= tag.h1 "Stream audio" %>
+
+<%= tag.div style: "margin-bottom: 2em" do %>
+  <%= render partial: "audio_player" %>
+<% end %>
+
+<%= tag.p(
+  link_to "Edit the audio", edit_audio_path(@record)
+) %>

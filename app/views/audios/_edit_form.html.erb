@@ -1,0 +1,27 @@
+<%= form_for(@record, multipart: true) do %>
+  <% if @record.audio_url.present? %>
+    <%= tag.p style: "margin-bottom: 1em" do %>
+      Current audio URL: <%= link_to(@record.audio_url, @record.audio_url) %>
+    <% end %>
+    <%= tag.p style: "margin-bottom: 2em" do %>
+      <% if @record.audio_stream_url.present? %>
+        Audio stream URL: <%= link_to(@record.audio_stream_url, @record.audio_stream_url) %>
+      <% else%>
+        Audio stream URL: <%= link_to("Not yet available", StreamableMedia.conversion_endpoint(@record.audio_url)) %>
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <%= tag.div style: "margin-bottom: 2em" do %>
+    <%= label_tag :audio_url do %>
+      <%= tag.p "Upload a new audio file:" %>
+      <%= file_field_tag "audio_url" %>
+    <% end %>
+    <%= tag.p "Only upload MP3s please" %>
+  <% end %>
+
+  <%= button_tag(
+    "Submit",
+    type: :submit
+  ) %>
+<% end %>
