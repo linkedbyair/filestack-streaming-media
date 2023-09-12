@@ -4,7 +4,7 @@
 
 This is a pared-down reproduction of an app that uses Filestack to stream audio using HLS.js. When an mp3 is uploaded, a job automatically 
 
-## Pre-requisits
+## Pre-requisites
 
 * Ruby 3.2.2 installed. Consider using [`rbenv`](https://github.com/rbenv/rbenv) if you don't have this version already.
 * [Bundler](https://bundler.io/) installed
