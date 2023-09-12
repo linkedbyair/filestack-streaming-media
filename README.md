@@ -32,9 +32,7 @@ S3_BUCKET: <your s3 bucket>
 
 ## Walkthrough
 
-### `app/models/audio.rb`
-
-This model represents any audio that has been uploaded to the site. The table has a column called `audio_url`, which stores the URL for the MP3 uploaded to Filestack. The table also has a column called `audio_stream_url` which will store the URL for an M3U8 which can be used to stream the media.
+The `Audio` model represents any audio that has been uploaded to the site. The table has a column called `audio_url`, which stores the URL for the MP3 uploaded to Filestack. The table also has a column called `audio_stream_url` which will store the URL for an M3U8 which can be used to stream the media.
 
 When an Audio record is saved, if the `audio_url` value has changed (as reported by [`ActiveModel::Dirty`](https://api.rubyonrails.org/classes/ActiveModel/Dirty.html)) then a job `CreateStreamableMediaJob` runs. 
 
