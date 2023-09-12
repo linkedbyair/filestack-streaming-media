@@ -13,8 +13,8 @@ This is a pared-down reproduction of an app that uses Filestack to stream audio.
 ## Set up
 
 1. `bundle install`
-2. Create `config/application.yml`
-3. Add Filestack credentials like so:
+2. Create `config/application.yml` to store environment variables, which will be read by [Figaro](https://github.com/laserlemon/figaro)
+3. Add Filestack credentials in that file like so:
 
 ```
 FILESTACK_API_KEY: <your api key>
